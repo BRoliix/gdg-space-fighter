@@ -1,3 +1,4 @@
+// CollisionManager.jsx
 import { useEffect } from 'react';
 import { useAtom } from 'jotai';
 import { collisionStateAtom } from '../store/atom';

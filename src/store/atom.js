@@ -7,3 +7,4 @@ export const obstaclesAtom = atom([]);
 export const bulletsAtom = atom([]);
 export const collisionStateAtom = atom(false);
 export const bulletHitsAtom = atom([]);
+export const timerAtom = atom(0);

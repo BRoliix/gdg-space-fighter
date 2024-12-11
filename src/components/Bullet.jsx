@@ -1,6 +1,6 @@
-import React from 'react';
-import { useEffect } from 'react';
+// Bullet.jsx
 import { useAtom } from 'jotai';
+import React, { useEffect } from 'react';
 import { bulletsAtom, obstaclesAtom, scoreAtom } from '../store/atom';
 
 const Bullet = ({ x, y, id }) => {
@@ -19,11 +19,9 @@ const Bullet = ({ x, y, id }) => {
             y + 10 > obstacle.y;
           
           if (collision) {
-            // Remove bullet on collision
             setBullets(prev => prev.filter(bullet => bullet.id !== id));
-            // Increase score
             setScore(prev => prev + 10);
-            return false; // Remove obstacle
+            return false;
           }
           return true;
         })
@@ -32,7 +30,7 @@ const Bullet = ({ x, y, id }) => {
 
     const collisionInterval = setInterval(checkBulletCollision, 16);
     return () => clearInterval(collisionInterval);
-  }, [x, y, id]);
+  }, [x, y, id, setBullets, setObstacles, setScore]);
 
   return (
     <div 
